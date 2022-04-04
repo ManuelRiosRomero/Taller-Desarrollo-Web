@@ -1,12 +1,13 @@
 package co.javeriana.taller.Shared.Domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
 public class DateValueObject {
-    protected Date value;
+    protected LocalDate value;
 
-    public Date value(){
+    public LocalDate value(){
         return value;
     }
 

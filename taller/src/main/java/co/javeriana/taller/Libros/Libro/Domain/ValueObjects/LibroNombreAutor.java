@@ -15,11 +15,9 @@ public class LibroNombreAutor extends StringValueObject {
     }
 
     private void fullName(String value){
-        /**
-         * if(value){
-         *             throw new FullName("\nLongitud invalidad");
-         *         }
-         */
-
+        String[] nombreCompleto = value.split(" ");
+        if (nombreCompleto.length != 2) {
+            throw new FullName("\nEste campo solo debe tener 1 nombre y 1 apellido");
+        }
     }
 }
