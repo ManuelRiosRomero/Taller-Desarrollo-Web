@@ -6,38 +6,41 @@ import java.util.HashMap;
 
 public class Libro {
 
-    private LibroDescription descripcionLibro;
-    private LibroNombreAutor nombreAutor;
-    private LibroNumPaginas numPaginas;
-    private LibroPrecio precio;
-    private LibroPublicationDate publicationDate;
-    private LibroTitulo titulo;
+    private LibroId libroId; //String customUUID
+    private LibroDescription libroDescripcion; //String
+    private LibroNombreAutor libroNombreAutor;// String 2 palabras
+    //private LibroNumPaginas libroNumPaginas; // Integer
+    private LibroPrecio libroPrecio; //Double
+    private LibroPublicationDate libroPublicationDate; //Integer sólo el año
+    private LibroTitulo libroTitulo; //String
 
-    public Libro(LibroDescription descripcionLibro, LibroNombreAutor nombreAutor, LibroNumPaginas numPaginas,
-                 LibroPrecio precio, LibroPublicationDate publicationDate, LibroTitulo titulo) {
-        this.descripcionLibro = descripcionLibro;
-        this.nombreAutor = nombreAutor;
-        this.numPaginas = numPaginas;
-        this.precio = precio;
-        this.publicationDate = publicationDate;
-        this.titulo = titulo;
+
+    public Libro(LibroId libroId, LibroDescription libroDescripcion, LibroNombreAutor libroNombreAutor,
+                 LibroPrecio precio, LibroPublicationDate publicationDate,
+                 LibroTitulo titulo) {
+        this.libroId = libroId;
+        this.libroDescripcion = libroDescripcion;
+        this.libroNombreAutor = libroNombreAutor;
+        this.libroPrecio = precio;
+        this.libroPublicationDate = publicationDate;
+        this.libroTitulo = titulo;
     }
 
-    public static Libro create(LibroDescription descripcionLibro, LibroNombreAutor nombreAutor,
-                               LibroNumPaginas numPaginas, LibroPrecio precio, LibroPublicationDate publicationDate,
+    public static Libro create(LibroId libroId, LibroDescription descripcionLibro, LibroNombreAutor nombreAutor,
+                               LibroPrecio precio, LibroPublicationDate publicationDate,
                                LibroTitulo titulo) {
-        Libro nuevo = new Libro(descripcionLibro, nombreAutor, numPaginas, precio, publicationDate, titulo);
+        Libro nuevo = new Libro(libroId,descripcionLibro, nombreAutor, precio, publicationDate, titulo);
         return nuevo;
     }
 
     public HashMap<String, Object> data() {
         HashMap<String, Object> data = new HashMap<>() {{
-            put("descripcionLibro", descripcionLibro.value());
-            put("nombreAutor", nombreAutor.value());
-            put("numPaginas", numPaginas.value());
-            put("precio", precio.value());
-            put("publicationDate", publicationDate.value());
-            put("titulo", titulo.value());
+            put("libroId", libroId.value());
+            put("libroDescripcion", libroDescripcion.value());
+            put("libroNombreAutor", libroNombreAutor.value());
+            put("libroPrecio", libroPrecio.value());
+            put("libroPublicationDate", libroPublicationDate.value());
+            put("libroTitulo", libroTitulo.value());
         }};
         return data;
     }

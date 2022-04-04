@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="LibroRepository" class="co.javeriana.taller.Libros.Libro.Infrastructure.Adapters.HibernateLibroRepository">
+
+    </bean>
+
+
+
+    <bean id="RabbitMqPublisher" class="co.javeriana.taller.Shared.Infrastruture.RabbitMQ.RabbitMqPublisher" />
+
+    <bean id="DomainEventInformation" class="co.javeriana.taller.Shared.Infrastruture.RabbitMQ.DomainEventsInformation" />
+
+
+    <bean id="LibroCreator" class="co.javeriana.taller.Libros.Libro.Application.Create.LibroCreator">
+        <constructor-arg ref="LibroRepository"/>
+    </bean>
+
+    <bean id="RabbitMqEventBus" class="co.javeriana.taller.Shared.Infrastruture.RabbitMQ.RabbitMqEventBus">
+        <constructor-arg ref="RabbitMqPublisher"/>
+    </bean>
+
+    <bean id="LibroFindAll" class="co.javeriana.taller.Libros.Libro.Application.All.LibroFindAll">
+        <constructor-arg ref="LibroRepository"/>
+    </bean>
+
+    <bean id="DomainEventJsonDeserializer" class="co.javeriana.taller.Shared.Infrastruture.RabbitMQ.Serializable.DomainEventJsonDeserializer" >
+        <constructor-arg ref="DomainEventInformation"/>
+    </bean>
+
+    <bean id="RabbitMqDomainEventsConsumer" class="co.javeriana.taller.Shared.Infrastruture.RabbitMQ.RabbitMqDomainEventsConsumer" >
+        <constructor-arg ref="DomainEventInformation" />
+        <constructor-arg ref="DomainEventJsonDeserializer" />
+    </bean>
+
+
+</beans>

@@ -1,0 +1,36 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="co.javeriana.taller.Libros.Libro.Domain.Libro" table="libros">
+
+        <composite-id name="libroId" class="co.javeriana.taller.Libros.Libro.Domain.ValueObjects.LibroId" access="field">
+            <key-property name="value" column="id" access="field" length="36"/>
+        </composite-id>
+
+        <component name="libroDescripcion" class="co.javeriana.taller.Libros.Libro.Domain.ValueObjects.LibroDescription" access="field">
+            <property name="value" column="descripcion" access="field" type="string"/>
+        </component>
+
+        <component name="libroNombreAutor" class="co.javeriana.taller.Libros.Libro.Domain.ValueObjects.LibroNombreAutor" access="field">
+            <property name="value" column="nombreautor" access="field" type="string"/>
+        </component>
+        
+        <component name="libroPrecio" class="co.javeriana.taller.Libros.Libro.Domain.ValueObjects.LibroPrecio" access="field">
+            <property name="value" column="precio" access="field" type="double"/>
+        </component>
+
+        <component name="libroPublicationDate" class="co.javeriana.taller.Libros.Libro.Domain.ValueObjects.LibroPublicationDate" access="field">
+            <property name="value" column="anio" access="field" type="integer"/>
+        </component>
+
+        <component name="libroTitulo" class="co.javeriana.taller.Libros.Libro.Domain.ValueObjects.LibroTitulo" access="field">
+            <property name="value" column="titulo" access="field" type="string"/>
+        </component>
+
+    </class>
+
+
+</hibernate-mapping>
