@@ -26,6 +26,10 @@
         <constructor-arg ref="LibroRepository"/>
     </bean>
 
+    <bean id="LibroFindById" class="co.javeriana.taller.Libros.Libro.Application.FindById.LibroFindById">
+        <constructor-arg ref="LibroRepository"/>
+    </bean>
+
     <bean id="LibroFindByAutor" class="co.javeriana.taller.Libros.Libro.Application.Find.LibroFindByAutor">
         <constructor-arg ref="LibroRepository"/>
     </bean>
