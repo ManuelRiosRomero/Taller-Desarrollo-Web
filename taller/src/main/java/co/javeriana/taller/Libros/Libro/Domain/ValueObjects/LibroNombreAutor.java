@@ -5,6 +5,7 @@ import co.javeriana.taller.Shared.Domain.StringValueObject;
 
 public class LibroNombreAutor extends StringValueObject {
 
+    private LibroNombreAutor(){}
     public LibroNombreAutor(String value) {
         validate(value);
         this.value = value;

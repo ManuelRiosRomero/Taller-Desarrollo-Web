@@ -45,5 +45,7 @@ public class Libro {
         return data;
     }
 
+    private Libro(){}
+
 
 }

@@ -15,6 +15,8 @@ import java.util.Date;
 
 public class LibroPublicationDate extends IntegerValueObject {
 
+    private LibroPublicationDate(){}
+
     public LibroPublicationDate(Integer value) {
         validate(value);
         this.value = value;

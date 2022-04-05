@@ -5,6 +5,9 @@ import co.javeriana.taller.Libros.Libro.Domain.Exceptions.ValueLength;
 import co.javeriana.taller.Shared.Domain.DoubleValueObject;
 
 public class LibroPrecio extends DoubleValueObject {
+
+    private LibroPrecio(){}
+
     public LibroPrecio(Double value) {
         validate(value);
         this.value = value;
