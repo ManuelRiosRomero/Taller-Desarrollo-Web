@@ -12,7 +12,7 @@ public interface LibroRepository {
     void save(Libro libro);
     void update(Libro libro);
     Optional<Libro> find(LibroId libroId);
-    Optional<Libro> findByNombreAutor(LibroNombreAutor libroNombreAutor);
+    Optional<List<Libro>> findByNombreAutor(LibroNombreAutor libroNombreAutor);
     Optional<List<Libro>> all();
     void delete(Libro libro);
 }

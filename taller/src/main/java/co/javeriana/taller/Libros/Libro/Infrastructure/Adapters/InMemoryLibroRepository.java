@@ -31,10 +31,10 @@ public class InMemoryLibroRepository implements LibroRepository {
     }
 
     @Override
-    public Optional<Libro> findByNombreAutor(LibroNombreAutor libroNombreAutor) {
+    public Optional<List<Libro>> findByNombreAutor(LibroNombreAutor libroNombreAutor) {
         System.out.println(libroNombreAutor.value());
         libros.stream().forEach(libro -> System.out.println(libro.data().get("libroNombreAutor")));
-        return Optional.ofNullable(libros.stream().filter(libro -> libro.data().get("nombreAutor").equals(libroNombreAutor.value())).collect(Collectors.toList()).get(0));
+        return Optional.ofNullable(libros.stream().toList());
     }
 
     @Override

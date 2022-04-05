@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @Tag(name = "Libro", description = "Libro REST API")
-@RequestMapping(value = "/Libro")
+@RequestMapping(value = "/libro")
 public class LibroFinderAllController {
 
     @Autowired

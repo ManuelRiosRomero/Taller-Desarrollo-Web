@@ -39,17 +39,19 @@ public class HibernateLibroRepository extends HibernateRepository<Libro> impleme
     }
 
     @Override
-    public Optional<Libro> findByNombreAutor(LibroNombreAutor libroNombreAutor) {
+    public Optional<List<Libro>> findByNombreAutor(LibroNombreAutor libroNombreAutor) {
         Libro libro = null;
         CriteriaBuilder cb = sessionFactory.getCriteriaBuilder();
         CriteriaQuery<Libro> cr = cb.createQuery(Libro.class);
         Root<Libro> root = cr.from(Libro.class);
         cr.select(root).where(cb.equal(root.get("libroNombreAutor"), libroNombreAutor));
         List<Libro> libros = sessionFactory.getCurrentSession().createQuery(cr).getResultList();
-        if(!libros.isEmpty()) {
+        /*
+        if(!libros.isEmpty()){
             libro = libros.get(0);
         }
-        return Optional.ofNullable(libro);
+         */
+        return  Optional.ofNullable(libros);
     }
 
     @Override
