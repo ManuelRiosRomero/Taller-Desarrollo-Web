@@ -3,6 +3,7 @@ package co.javeriana.taller.Libros.Libro.Application.FindById;
 import co.javeriana.taller.Libros.Libro.Domain.Libro;
 import co.javeriana.taller.Libros.Libro.Domain.Ports.LibroRepository;
 import co.javeriana.taller.Libros.Libro.Domain.ValueObjects.LibroId;
+import co.javeriana.taller.Libros.Libro.Domain.ValueObjects.LibroNumPaginas;
 
 import java.util.Optional;
 

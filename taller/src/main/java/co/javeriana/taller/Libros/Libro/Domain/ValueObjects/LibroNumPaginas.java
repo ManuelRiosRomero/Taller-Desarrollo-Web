@@ -16,7 +16,7 @@ public class LibroNumPaginas extends IntegerValueObject {
     }
 
     private void valueLength(Integer value) {
-        if(value > 1500 || value >= 0) {
+        if(value > 1500 || value <= 0) {
             throw new PageSize("Las páginas deben ser númericas positivas menores o iguales a 1500");
         }
     }
