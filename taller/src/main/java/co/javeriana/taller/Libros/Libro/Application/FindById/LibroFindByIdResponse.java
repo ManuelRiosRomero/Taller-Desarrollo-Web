@@ -16,12 +16,13 @@ public class LibroFindByIdResponse {
     }
 
     public HashMap<String, Object> response() {
+        String random = String.valueOf((int)(Math.random()*(1500-200+1)+200));
 
         HashMap<String, Object> response = new HashMap<>() {{
             put("descripcion", libro.data().get("libroDescripcion"));
             put("precio", libro.data().get("libroPrecio"));
             put("añoPublicacion", libro.data().get("libroPublicationDate"));
-            put("numPaginas", new Random().nextInt(1500));
+            put("numPaginas", random);
         }};
         return response;
     }
