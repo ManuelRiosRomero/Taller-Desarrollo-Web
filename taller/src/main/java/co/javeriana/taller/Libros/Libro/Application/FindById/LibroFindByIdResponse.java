@@ -21,7 +21,7 @@ public class LibroFindByIdResponse {
             put("descripcion", libro.data().get("libroDescripcion"));
             put("precio", libro.data().get("libroPrecio"));
             put("añoPublicacion", libro.data().get("libroPublicationDate"));
-            put("numPaginas", new Random().nextInt(15000));
+            put("numPaginas", new Random().nextInt(1500));
         }};
         return response;
     }
